@@ -3,6 +3,6 @@ class Expense < ApplicationRecord
   has_many :group_expenses, class_name: 'GroupExpense', foreign_key: 'expense_id'
 
   validates :name, presence: true, length: { in: 2..300 }
-  validates :amount, presence: true, numericality: { only_decimal: true, greater_than_or_equal_to: 0 }
+  validates :amount, presence: true, numericality: { only_float: true, greater_than_or_equal_to: 0 }
 
 end
