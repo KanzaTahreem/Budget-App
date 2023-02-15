@@ -1,0 +1,17 @@
+<div class="top_bar">
+  <%= render partial: 'shared/menu', locals: { title: 'CATEGORIES', menu_path: root_path } %>
+</div>
+
+<section class="groups_page">
+  <% @groups.each do |group| %>
+  <% if group.icon.attached?%>
+    <%= image_tag(group.icon) %>
+  <%else%>
+    <%= image_tag('group.png') %>
+  <%end%>
+    <%= group.name %>
+<% end %>
+</section>
+
+
+<%= link_to 'Add new group', new_group_path %>
