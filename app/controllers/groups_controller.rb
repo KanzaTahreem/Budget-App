@@ -24,6 +24,19 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @group.update(group_params)
+      redirect_to group_path(id: @group.id), notice: 'Group updated successfully'
+    else
+      flash.now[:alert] = @group.errors.full_messages.first if @group.errors.any?
+      render :edit, status: 400
+    end
+  end
+
+
   private
 
   def find_user
