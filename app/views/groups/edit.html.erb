@@ -1,0 +1,7 @@
+<%= form_with model: @group, url: group_path(id: @group.id), local: true do |f| %>
+  <%= f.text_field :name, autofocus: true %>
+  <%= f.file_field :icon %>
+  <%= f.submit "Update Group" %>
+<% end %>
+
+<button> <%= link_to "Back to group", group_path(id: @group.id) %></button>
