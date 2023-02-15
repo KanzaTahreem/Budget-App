@@ -1,8 +1,12 @@
 class GroupsController < ApplicationController
   before_action :find_user
+  before_action :find_group, only: [:show, :edit, :update, :destroy]
 
   def index
     @groups = @user.groups.all
+  end
+
+  def show
   end
 
   def new
@@ -13,7 +17,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user = @user
     if @group.save
-      redirect_to groups_path, notice: 'Group created successfully'
+      redirect_to group_path(id: @group.id), notice: 'Group created successfully'
     else
       flash.now[:alert] = @group.errors.full_messages.first if @group.errors.any?
       render :new, status: 400
@@ -24,6 +28,10 @@ class GroupsController < ApplicationController
 
   def find_user
     @user = current_user
+  end
+
+  def find_group
+    @group = Group.find_by_id(params[:id])
   end
 
   def group_params

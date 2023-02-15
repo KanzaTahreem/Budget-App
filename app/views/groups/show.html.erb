@@ -1,0 +1,11 @@
+
+<% if @group.icon.attached?%>
+    <%= image_tag(@group.icon) %>
+  <%else%>
+    <%= image_tag('group.png') %>
+  <%end%>
+<h1><%= @group.name %></h1>
+
+<%= link_to "Edit this group", edit_group_path(@group) %>
+<%= link_to "Back to groups", groups_path %>
+<%= button_to "Destroy this group", @group, method: :delete %>
