@@ -5,6 +5,21 @@ class GroupsController < ApplicationController
     @groups = @user.groups.all
   end
 
+  def new
+    @group = Group.new
+  end
+
+  def create
+    @group = Group.new(group_params)
+    @group.user = @user
+    if @group.save
+      redirect_to groups_path, notice: 'Group created successfully'
+    else
+      flash.now[:alert] = @group.errors.full_messages.first if @group.errors.any?
+      render :new, status: 400
+    end
+  end
+
   private
 
   def find_user

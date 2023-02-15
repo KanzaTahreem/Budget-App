@@ -1,0 +1,6 @@
+<%= form_with model: @group, url: groups_path, local: true do |f| %>
+  <%= f.text_field :name, autofocus: true %>
+  <%= f.file_field :icon %>
+  <%= f.submit "Create Group" %>
+<% end %>
+
