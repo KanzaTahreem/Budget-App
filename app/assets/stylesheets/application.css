@@ -279,7 +279,7 @@ input::placeholder {
   border: none;
   height: 50px;
   width: 94vw;
-  margin: 0 auto 0.5rem auto;
+  margin: 0.5rem auto;
   border-radius: 3px;
   box-shadow: 2px 2px 3px var(--grey3), -1px 0 3px var(--grey3);
 }
@@ -315,6 +315,11 @@ input::placeholder {
   align-self: flex-end;
   font-size: 1rem;
   color: var(--dark);
+}
+
+.btn_list {
+  display: flex;
+  gap: 0.3rem;
 }
 
 /* -------group details page-------- */
@@ -403,3 +408,24 @@ form input[type="file"]::-ms-browse {
 }
 
 /* -------expenses_page-------- */
+
+.expenses_page .group_header {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.2rem 1rem;
+}
+
+.scroll {
+  overflow: scroll;
+}
+
+.group_header > div {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header_name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
