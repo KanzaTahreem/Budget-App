@@ -25,6 +25,8 @@
           <% end %>
         </div>
         </a>
+        <!-- <p><%= @groups_sum[group.id] %></p> -->
+        <p><%= group.expenses.sum(:amount) %></p>
      </div>
       <div>
         <button class="list_btn"><%= link_to 'Detail', group_path(id: group.id) %> </button>
