@@ -2,7 +2,9 @@
 
 :root {
   --red: #bd3b1b;
+  --red2: #d9370fdb;
   --blue: #3778c2;
+  --blue2: #008cba;
   --green: #5fb523;
   --orange: #d8a800;
   --white: #fff;
@@ -10,7 +12,7 @@
   --grey2: #e8eae9;
   --grey3: #c7ccca;
   --black: #262729;
-  --dark: #434b54;
+  --dark: #434b54d2;
   --principalFont: 'Proxima Nova', sans-serif;
 }
 
@@ -23,13 +25,13 @@
   outline: none;
 }
 
-a {
+/* a {
   text-decoration: none;
   color: inherit;
-}
+} */
 
 img {
-  width: 100%;
+  width: 4rem;
   height: auto;
 }
 
@@ -42,6 +44,10 @@ body {
   color: var(--black);
   overflow-x: hidden;
   background: var(--grey);
+}
+
+.container {
+  overflow: hidden;
 }
 
 input {
@@ -198,9 +204,9 @@ input::placeholder {
   letter-spacing: 1px;
 }
 
-.back {
-  width: 1.3rem;
-  height: 1.3rem;
+.svg {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .top_bar h2 {
@@ -211,6 +217,7 @@ input::placeholder {
 .top_bar input {
   padding: 0;
 }
+
 /* -------signup Login-------- */
 
 .signup_form,
@@ -224,3 +231,165 @@ input::placeholder {
 .login_form input:focus {
   box-shadow: 2px 2px 3px 1px var(--grey2);
 }
+
+/* -------groups page-------- */
+
+.groups_page {
+  display: flex;
+  flex-direction: column;
+  height: 92vh;
+  justify-content: space-between;
+}
+
+.group {
+  gap: 1rem;
+  display: flex;
+  width: 94vw;
+  background: var(--white);
+  padding: 0.5rem;
+  align-items: center;
+  margin: 0.8rem auto 0.2rem auto;
+  justify-content: space-between;
+  box-shadow: 2px 2px 3px var(--grey3), -1px 0 3px var(--grey3);
+}
+
+.group > div,
+.group > div > a {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.group > div:last-child {
+  align-self: flex-end;
+}
+.group p {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--grey3);
+}
+
+.group h2 {
+  color: #858a91db;
+  font-size: 1.2rem;
+}
+
+.add_btn {
+  background: var(--green);
+  border: none;
+  height: 50px;
+  width: 94vw;
+  margin: 0 auto 0.5rem auto;
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px var(--grey3), -1px 0 3px var(--grey3);
+}
+
+.add_btn:hover {
+  transform: scale(1);
+  box-shadow: 3px 3px 3px var(--dark);
+}
+
+.list_btn {
+  align-self: flex-end;
+  font-size: 0.7rem;
+  padding: 0.4rem 0.6rem;
+  font-style: italic;
+  background: var(--orange);
+  border: none;
+  border-radius: 3px;
+}
+
+.list_btn a {
+  color: var(--grey2);
+}
+
+.list_btn:hover {
+  box-shadow: 3px 3px 3px var(--dark);
+}
+
+/* -------group details page-------- */
+
+.group_detail_page img {
+  width: 5rem;
+}
+
+.group_detail_page .group {
+  gap: 1.4rem;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.group_detail_page h2 {
+  font-size: 1.4rem;
+}
+
+.list_btn_gen button {
+  padding: 0.5rem 1.4rem;
+}
+
+.desc {
+  border-bottom: 1px solid var(--grey2);
+  padding-bottom: 1.9rem;
+}
+
+.del_btn {
+  background: var(--red2);
+}
+
+/* -------group details page-------- */
+
+.edit_group_page {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
+}
+
+.edit_group_page form {
+  padding: 1.3rem 1rem;
+}
+
+.edit_group_page form input[type="text"] {
+  width: 100%;
+  border: none;
+  background: var(--grey2);
+  box-shadow: 1px 1px 2px var(--grey3), -1px 0 3px var(--grey3);
+}
+
+form input[type="file"] {
+  width: 100%;
+  border: none;
+  padding: 1.9rem 0;
+}
+
+form input[type="file"]::-webkit-file-upload-button {
+  background: var(--blue);
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+/* form input[type="file"]::-moz-file-upload-button {
+  background: var(--blue);
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form input[type="file"]::-ms-browse {
+  background: var(--blue);
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+} */
+
+.form_btn {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 0.7px solid var(--grey2);
+}
+
+/* -------expenses_page-------- */

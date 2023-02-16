@@ -1,7 +1,14 @@
-<%= form_with model: @group, url: group_path(id: @group.id), local: true do |f| %>
-  <%= f.text_field :name, autofocus: true %>
-  <%= f.file_field :icon %>
-  <%= f.submit "Update Group" %>
-<% end %>
+<div class="top_bar">
+  <%= render partial: 'shared/menu', locals: { title: 'EDIT GROUP', menu_path: root_path } %>
+</div>
 
-<button> <%= link_to "Back to group", group_path(id: @group.id) %></button>
+<section class="edit_group_page group">
+  <%= form_with model: @group, url: group_path(id: @group.id), local: true do |f| %>
+    <%= f.text_field :name, autofocus: true %>
+    <%= f.file_field :icon %>
+    <div class="form_btn">
+      <%= f.submit "Update Group", class: 'list_btn' %>
+      <button class="list_btn"><%= link_to "Back", group_path(id: @group.id) %></button>
+    </div>
+  <% end %>
+</section>

@@ -1,17 +1,41 @@
 <div class="top_bar">
-  <%= render partial: 'shared/menu', locals: { title: 'CATEGORIES', menu_path: root_path } %>
+  <%= render partial: 'shared/menu', locals: { title: 'GROUPS', menu_path: root_path } %>
 </div>
 
 <section class="groups_page">
-  <% @groups.each do |group| %>
-  <% if group.icon.attached?%>
-    <%= image_tag(group.icon) %>
-  <%else%>
-    <%= image_tag('group.png') %>
-  <%end%>
-    <%= group.name %>
-<% end %>
+  <div>
+    <% @groups.each do |group| %>
+    <div class="group">
+     <div>
+      <a href=<%= group_expenses_path(group_id: group.id) %>>
+        <% if group.icon.attached?%>
+          <%= image_tag(group.icon) %>
+        <%else%>
+          <%= image_tag('group.png') %>
+        <%end%>
+        <!-- <%= image_tag(group.icon.attached? ? group.icon : 'group.png') %> -->
+        <div>
+          <h2><%= group.name %></h2>
+          <% if Time.now - group.created_at <= 1.minute %>
+            <p><%= time_ago_in_words(group.created_at, include_seconds: true) %> ago</p>
+          <% elsif Time.now - group.created_at <= 24.hours %>
+            <p><%= time_ago_in_words(group.created_at) %> ago</p>
+          <% else %>
+            <p><%= group.created_at.strftime('%b %d, %Y') %></p>
+          <% end %>
+        </div>
+        </a>
+     </div>
+      <div>
+        <button class="list_btn"><%= link_to 'Detail', group_path(id: group.id) %> </button>
+        <button class="list_btn"><%= link_to 'Expense', group_expenses_path(group_id: group.id) %> </button>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <button class="add_btn"><%= link_to 'Add new group', new_group_path %> </button>
 </section>
 
 
-<%= link_to 'Add new group', new_group_path %>
+
+
