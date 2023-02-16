@@ -307,6 +307,16 @@ input::placeholder {
   box-shadow: 3px 3px 3px var(--dark);
 }
 
+.list_gen {
+  flex-direction: column;
+}
+
+.list_gen h3 {
+  align-self: flex-end;
+  font-size: 1rem;
+  color: var(--dark);
+}
+
 /* -------group details page-------- */
 
 .group_detail_page img {
