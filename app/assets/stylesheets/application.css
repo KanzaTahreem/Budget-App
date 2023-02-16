@@ -31,7 +31,7 @@
 } */
 
 img {
-  width: 4rem;
+  width: 3.8rem;
   height: auto;
 }
 
@@ -271,7 +271,7 @@ input::placeholder {
 
 .group h2 {
   color: #858a91db;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .add_btn {
@@ -292,7 +292,7 @@ input::placeholder {
 .list_btn {
   align-self: flex-end;
   font-size: 0.7rem;
-  padding: 0.4rem 0.6rem;
+  padding: 0.3rem 0.5rem;
   font-style: italic;
   background: var(--orange);
   border: none;
@@ -337,19 +337,19 @@ input::placeholder {
   background: var(--red2);
 }
 
-/* -------group details page-------- */
+/* -------edit/add group page-------- */
 
-.edit_group_page {
+.edit_add_group_page {
   display: flex;
   flex-direction: column;
   padding: 1em 0;
 }
 
-.edit_group_page form {
+.edit_add_group_page form {
   padding: 1.3rem 1rem;
 }
 
-.edit_group_page form input[type="text"] {
+.edit_add_group_page form input[type="text"] {
   width: 100%;
   border: none;
   background: var(--grey2);

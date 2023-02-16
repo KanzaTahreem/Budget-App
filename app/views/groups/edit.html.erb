@@ -2,7 +2,7 @@
   <%= render partial: 'shared/menu', locals: { title: 'EDIT GROUP', menu_path: root_path } %>
 </div>
 
-<section class="edit_group_page group">
+<section class="edit_add_group_page group">
   <%= form_with model: @group, url: group_path(id: @group.id), local: true do |f| %>
     <%= f.text_field :name, autofocus: true %>
     <%= f.file_field :icon %>
