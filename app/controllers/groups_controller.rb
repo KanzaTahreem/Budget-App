@@ -41,6 +41,13 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    @group = Group.find(params[:id])
+    @group_expenses = GroupExpense.where(group_id: @group.id)
+    @group_expenses.each do |group_expense|
+      expense_id = group_expense.expense_id
+      group_expense.destroy
+      expense = Expense.delete(expense_id)
+    end
     if @group.destroy
       redirect_to groups_path, notice: 'Groups was deleted successfully'
     else
