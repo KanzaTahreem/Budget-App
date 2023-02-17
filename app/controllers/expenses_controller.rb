@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: %i[show]
 
   before_action :find_user
   before_action :find_group
