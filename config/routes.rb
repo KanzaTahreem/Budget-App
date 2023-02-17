@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   resources :groups do
     resources :expenses
   end
+
+  resources :not_found, only: [:index]
   # Defines the root path route ("/")
   # root "articles#index"
   root 'splash#index'
+
+  match '*unmatched', to: 'application#not_found_method', via: :all, constraints: ->(req) do
+    req.path.exclude? 'rails/active_storage'
+  end
 end

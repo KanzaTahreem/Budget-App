@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[email name password password_confirmation])
   end
+
+  def not_found_method
+    render file: Rails.public_path.join('404.html'), status: :not_found, layout: false
+  end
 end
