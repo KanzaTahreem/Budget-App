@@ -43,7 +43,7 @@
           <div class="list_gen">
             <h3>$ <%= group_expense.expense.amount %></h3>
             <div>
-              <button class="list_btn"><%= link_to 'Detail', group_expense_path(group_id: @group.id, id: group_expense.id) %> </button>
+              <button class="list_btn"><%= link_to 'Detail', group_expense_path(group_id: @group.id, id: group_expense.expense_id) %> </button>
             </div>
           </div>
         </div>
