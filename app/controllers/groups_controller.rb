@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :find_user
   before_action :find_group, only: [:show, :edit, :update, :destroy]
 
@@ -41,18 +43,24 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group_expenses = GroupExpense.where(group_id: @group.id)
-    @group_expenses.each do |group_expense|
-      expense_id = group_expense.expense_id
-      group_expense.destroy
-      expense = Expense.delete(expense_id)
-    end
-    if @group.destroy
-      redirect_to groups_path, notice: 'Groups was deleted successfully'
+    if can? :edit, @group
+      @group_expenses = GroupExpense.where(group_id: @group.id)
+      @group_expenses.each do |group_expense|
+        expense_id = group_expense.expense_id
+        group_expense.destroy
+        expense = Expense.delete(expense_id)
+      end
+      if @group.destroy
+        redirect_to groups_path, notice: 'Groups was deleted successfully'
+      else
+        flash.now[:alert] = @group.errors.full_messages.first if @group.errors.any?
+        render :index, status: 400
+      end
     else
-      flash.now[:alert] = @group.errors.full_messages.first if @group.errors.any?
-      render :index, status: 400
+      flash[:alert] = 'Un Authorized'
+      redirect_to groups_path
     end
+
   end
 
   private
