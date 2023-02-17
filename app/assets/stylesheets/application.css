@@ -354,17 +354,18 @@ input::placeholder {
 
 /* -------edit/add group page-------- */
 
-.edit_add_group_page {
+.edit_add_page {
   display: flex;
   flex-direction: column;
   padding: 1em 0;
 }
 
-.edit_add_group_page form {
+.edit_add_page form {
   padding: 1.3rem 1rem;
 }
 
-.edit_add_group_page form input[type="text"] {
+.edit_add_page form input[type="text"],
+.edit_add_page form input[type="number"] {
   width: 100%;
   border: none;
   background: var(--grey2);
@@ -428,4 +429,12 @@ form input[type="file"]::-ms-browse {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+
+/* -------add expenses page-------- */
+
+.edit_add_page form input[type="text"],
+.edit_add_page form input[type="number"] {
+  margin: 0.5rem 0;
 }

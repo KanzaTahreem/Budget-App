@@ -28,7 +28,7 @@
       </div>
       <div class="list_gen">
         <h3>$ <%= group.expenses.sum(:amount) %></h3>
-        <div>
+        <div class="btn_list">
           <button class="list_btn"><%= link_to 'Detail', group_path(id: group.id) %> </button>
           <button class="list_btn"><%= link_to 'Expense', group_expenses_path(group_id: group.id) %> </button>  
         </div>
