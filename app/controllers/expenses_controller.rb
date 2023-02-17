@@ -6,6 +6,10 @@ class ExpensesController < ApplicationController
   def index
   end
 
+  def show
+    @expense = Expense.find(params[:id])
+  end
+
   def new
     @expense = Expense.new
   end

@@ -439,3 +439,13 @@ form input[type="file"]::-ms-browse {
 .edit_add_page form input[type="number"] {
   margin: 0.5rem 0;
 }
+
+/* -------expense detail page-------- */
+
+.expense {
+  color: #828991d2;
+  font-size: 0.9rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
