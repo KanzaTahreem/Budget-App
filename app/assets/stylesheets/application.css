@@ -414,6 +414,7 @@ form input[type="file"]::-ms-browse {
   flex-direction: column;
   align-items: flex-start;
   padding: 1.2rem 1rem;
+  gap: 0.6rem;
 }
 
 .scroll {
