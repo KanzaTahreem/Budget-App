@@ -2,12 +2,12 @@ class ExpensesController < ApplicationController
   before_action :find_user
   before_action :find_group
   before_action :find_group_expenses
+  before_action :find_expense, only: [:show, :edit, :update, :destroy]
 
   def index
   end
 
   def show
-    @expense = Expense.find(params[:id])
   end
 
   def new
@@ -27,11 +27,9 @@ class ExpensesController < ApplicationController
   end
 
   def edit
-    @expense = Expense.find(params[:id])
   end
 
   def update
-    @expense = Expense.find(params[:id])
     if @expense.update(expense_params)
       redirect_to group_expense_path(group_id: @group.id, id: @expense.id), notice: 'Expense updated successfully'
     else
@@ -41,7 +39,6 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-    @expense = Expense.find(params[:id])
     @group_expenses = GroupExpense.where(expense_id: @expense.id)
     @group_expenses.each do |group_expense|
       expense_id = group_expense.expense_id
@@ -60,13 +57,27 @@ class ExpensesController < ApplicationController
   def find_user
     @user = current_user
   end
-  
+
   def find_group
-    @group = Group.find_by_id(params[:group_id])
+    begin
+      @group = Group.find(params[:group_id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = 'Group not found!'
+      redirect_to not_found_index_path
+    end
   end
 
   def find_group_expenses
     @group_expenses = GroupExpense.where({group_id: params[:group_id]})
+  end
+ 
+  def find_expense
+    begin
+      @expense = Expense.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = 'Expense not found!'
+      redirect_to not_found_index_path
+    end
   end
 
   def expense_params

@@ -452,3 +452,19 @@ form input[type="file"]::-ms-browse {
   width: 100%;
   justify-content: space-between;
 }
+
+/* -------expense detail page-------- */
+
+.not_found {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.not_found .list_btn {
+  padding: 0.8rem 1.3rem;
+}
+
+.not_found a {
+  font-size: 0.9rem;
+}
