@@ -1,0 +1,2 @@
+module NotFoundHelper
+end

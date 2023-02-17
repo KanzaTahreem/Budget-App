@@ -1,0 +1,2 @@
+class NotFoundController < ApplicationController
+end
