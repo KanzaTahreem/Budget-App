@@ -26,6 +26,21 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def destroy
+    @expense = Expense.find(params[:id])
+    @group_expenses = GroupExpense.where(expense_id: @expense.id)
+    @group_expenses.each do |group_expense|
+      expense_id = group_expense.expense_id
+      group_expense.destroy
+    end
+    if @expense.destroy
+      redirect_to group_expenses_path(group_id: @group.id, id: @expense.id), notice: 'Expense was deleted successfully'
+    else
+      flash.now[:alert] = @expense.errors.full_messages.first if @expense.errors.any?
+      render :index, status: 400
+    end
+  end
+
   private
   
   def find_user

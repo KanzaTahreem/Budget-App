@@ -18,7 +18,7 @@
     <div class="list_btn_gen">
       <button class="edit_btn list_btn"><%= link_to "Edit", edit_group_expense_path(group_id: @group.id, id: @expense.id) %></button>
       <button class="back_btn list_btn"><%= link_to "Back", group_expenses_path(group_id: @group.id) %></button>
-      <%= button_to "Delete", group_expense_path(group_id: @group.id, id: @expense.id), method: :delete, class: 'del_btn list_btn' %>
+      <%= button_to "Delete", @group_expense, method: :delete, class: 'del_btn list_btn' %>
     </div>
   </div>
 </section>
