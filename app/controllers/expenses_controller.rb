@@ -26,6 +26,20 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def edit
+    @expense = Expense.find(params[:id])
+  end
+
+  def update
+    @expense = Expense.find(params[:id])
+    if @expense.update(expense_params)
+      redirect_to group_expense_path(group_id: @group.id, id: @expense.id), notice: 'Expense updated successfully'
+    else
+      flash.now[:alert] = @expense.errors.full_messages.first if @expense.errors.any?
+      render :edit, status: 400
+    end
+  end
+
   def destroy
     @expense = Expense.find(params[:id])
     @group_expenses = GroupExpense.where(expense_id: @expense.id)
@@ -34,7 +48,7 @@ class ExpensesController < ApplicationController
       group_expense.destroy
     end
     if @expense.destroy
-      redirect_to group_expenses_path(group_id: @group.id, id: @expense.id), notice: 'Expense was deleted successfully'
+      redirect_to group_expenses_path(group_id: @group.id), notice: 'Expense was deleted successfully'
     else
       flash.now[:alert] = @expense.errors.full_messages.first if @expense.errors.any?
       render :index, status: 400

@@ -362,6 +362,9 @@ input::placeholder {
 
 .edit_add_page form {
   padding: 1.3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .edit_add_page form input[type="text"],
