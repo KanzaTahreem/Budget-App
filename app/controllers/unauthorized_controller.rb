@@ -1,0 +1,2 @@
+class UnauthorizedController < ApplicationController
+end
