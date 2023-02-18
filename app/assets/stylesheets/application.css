@@ -25,10 +25,10 @@
   outline: none;
 }
 
-/* a {
+a {
   text-decoration: none;
-  color: inherit;
-} */
+  color: var(--grey2);
+}
 
 img {
   width: 3.8rem;
@@ -360,6 +360,7 @@ input::placeholder {
 
 .del_btn {
   background: var(--red2);
+  color: var(--grey2);
 }
 
 /* -------edit/add group page-------- */
@@ -424,6 +425,10 @@ form input[type="file"]::-ms-browse {
   justify-content: flex-end;
   padding-top: 1rem;
   border-top: 0.7px solid var(--grey2);
+}
+
+.form_btn .list_btn {
+  color: var(--grey2);
 }
 
 /* -------expenses_page-------- */
