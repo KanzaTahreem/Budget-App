@@ -6,10 +6,6 @@ class GroupsController < ApplicationController
 
   def index
     @groups = @user.groups.all
-    # @groups_sum = {}
-    # @groups.each do |group|
-    #   @groups_sum[group.id] = group.expenses.sum(:amount)
-    # end
   end
 
   def show; end
