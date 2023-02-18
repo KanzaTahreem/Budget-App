@@ -1,0 +1,18 @@
+databases:
+  - name: postgres
+    databaseName: postgres
+    user: postgres
+
+services:
+  - type: web
+    name: postgres
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: postgres
+          property: postgres://KanzaTahreem:SgQoM1NUjmV3@ep-blue-shadow-716399.us-east-2.aws.neon.tech/neondb
+      - key: RAILS_MASTER_KEY
+        sync: false

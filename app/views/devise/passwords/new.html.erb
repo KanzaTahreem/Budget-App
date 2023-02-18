@@ -1,0 +1,12 @@
+<div class="resend_instruction">
+  <%= form_for(resource, as: resource_name, data: {turbo: false}, url: password_path(resource_name), data: { turbo:false }, html: { method: :post }) do |f| %>
+    <div class="top_bar">
+      <%= render partial: 'shared/back', locals: { title: 'RESET PASSWORD', back_path: root_path } %>
+      <%= f.submit "Resend", { class: "actions"} %>
+    </div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "resend_input" %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

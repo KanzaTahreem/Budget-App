@@ -1,0 +1,25 @@
+<div class="top_bar">
+  <%= render partial: 'shared/menu', locals: { title: 'GROUP DETAIL', menu_path: root_path } %>
+</div>
+
+<section class="group_detail_page">
+  
+  <div class="group">
+    <div>
+      <% if @group.icon.attached?%>
+        <%= image_tag(@group.icon) %>
+      <%else%>
+        <%= image_tag('group.png') %>
+      <%end%>
+      <h2><%= @group.name %></h2>
+    </div>
+    <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque iste quidem repudiandae. Dolor debitis quas impedit sit officiis dolorum beatae quaerat nesciunt doloribus expedita in distinctio laborum facilis ex sunt ipsum numquam, amet et odio iusto ab est. Vero, nemo.</p>
+    <h3 class="desc expense"><span>TOTAL EXPENSE: </span> <span>$<%= @group.expenses.sum(:amount) %></span></h3>
+    <div class="list_btn_gen">
+      <button class="edit_btn list_btn"><%= link_to "Edit", edit_group_path(@group) %></button>
+      <button class="back_btn list_btn"><%= link_to "Back", groups_path %></button>
+      <%= button_to "Delete", @group, method: :delete, class: 'del_btn list_btn' %>
+    </div>
+  </div>
+
+</section>
