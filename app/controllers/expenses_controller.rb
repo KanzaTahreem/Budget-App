@@ -4,14 +4,13 @@ class ExpensesController < ApplicationController
   before_action :find_user
   before_action :find_group
   before_action :find_group_expenses
-  before_action :find_expense, only: [:show, :edit, :update, :destroy]
+  before_action :find_expense, only: %i[show edit update destroy]
 
   def index
     authorize! :manage, @group
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @expense = Expense.new
@@ -29,8 +28,7 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @expense.update(expense_params)
@@ -41,6 +39,7 @@ class ExpensesController < ApplicationController
     end
   end
 
+  # rubocop:disable Lint/UselessAssignment
   def destroy
     if can? :edit, @expense
       @group_expenses = GroupExpense.where(expense_id: @expense.id)
@@ -59,33 +58,30 @@ class ExpensesController < ApplicationController
       redirect_to groups_path
     end
   end
+  # rubocop:enable Lint/UselessAssignment
 
   private
-  
+
   def find_user
     @user = current_user
   end
 
   def find_group
-    begin
-      @group = Group.find(params[:group_id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = 'Group not found!'
-      redirect_to not_found_index_path
-    end
+    @group = Group.find(params[:group_id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = 'Group not found!'
+    redirect_to not_found_index_path
   end
 
   def find_group_expenses
-    @group_expenses = GroupExpense.where({group_id: params[:group_id]}).order(created_at: :desc)
+    @group_expenses = GroupExpense.where({ group_id: params[:group_id] }).order(created_at: :desc)
   end
- 
+
   def find_expense
-    begin
-      @expense = Expense.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = 'Expense not found!'
-      redirect_to not_found_index_path
-    end
+    @expense = Expense.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = 'Expense not found!'
+    redirect_to not_found_index_path
   end
 
   def expense_params

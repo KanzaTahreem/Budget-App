@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Unauthorizeds", type: :request do
-  describe "GET /index" do
+RSpec.describe 'Unauthorizeds', type: :request do
+  describe 'GET /index' do
     before(:each) { get unauthorized_path }
 
     it 'returns http success' do

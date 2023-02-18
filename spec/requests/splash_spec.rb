@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Splashes", type: :request do
-  describe "GET /index" do
+RSpec.describe 'Splashes', type: :request do
+  describe 'GET /index' do
     before(:each) { get root_path }
 
     it 'returns http success' do

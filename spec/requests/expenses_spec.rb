@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Exoenses", type: :request do
-
+RSpec.describe 'Exoenses', type: :request do
   subject do
     @user = User.create!(name: 'someone', email: 'user@user.com', password: 'password', id: 1)
     @group = Group.create!(name: 'stationary', icon: @icon_file, user: @user)
@@ -32,7 +31,7 @@ RSpec.describe "Exoenses", type: :request do
   end
 
   describe 'GET /new' do
-    before(:each) { get  new_group_expense_path(group_id: @group.id) }
+    before(:each) { get new_group_expense_path(group_id: @group.id) }
 
     it 'returns http success' do
       follow_redirect!

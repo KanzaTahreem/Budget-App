@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Groups", type: :request do
-
+RSpec.describe 'Groups', type: :request do
   subject do
     @user = User.create!(name: 'someone', email: 'user@user.com', password: 'password', id: 1)
     @group = Group.create!(name: 'stationary', icon: @icon_file, user: @user)
