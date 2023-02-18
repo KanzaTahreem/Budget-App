@@ -3,10 +3,11 @@
 </div>
 
 <section class="groups_page">
+ <% if @groups.any?  %>
   <div class="scroll">
     <% @groups.each do |group| %>
     <div class="group">
-     <div>
+    <div>
       <a href=<%= group_expenses_path(group_id: group.id) %>>
         <%= image_tag(group.icon.attached? ? group.icon : 'group.png') %>
         <div>
@@ -31,6 +32,9 @@
     </div>
     <% end %>
   </div>
+  <% else %>
+  <p class="flash-notice">Currently, you have no groups. Add a new group to record expenses</p>
+  <% end %>
   <button class="add_btn"><%= link_to 'Add new group', new_group_path %> </button>
 </section>
 

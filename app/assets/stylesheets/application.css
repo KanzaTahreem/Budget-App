@@ -405,20 +405,6 @@ form input[type="file"]::-webkit-file-upload-button {
   border: none;
 }
 
-/* form input[type="file"]::-moz-file-upload-button {
-  background: var(--blue);
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-form input[type="file"]::-ms-browse {
-  background: var(--blue);
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-} */
-
 .form_btn {
   display: flex;
   gap: 0.8rem;
@@ -441,7 +427,7 @@ form input[type="file"]::-ms-browse {
 }
 
 .scroll {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .header_name {
