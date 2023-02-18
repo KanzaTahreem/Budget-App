@@ -5,7 +5,7 @@ RSpec.describe Group, type: :model do
     @user = User.create!(name: 'someone', email: 'user@user.com', password: 'password', id: 1)
     @icon_file = fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'test.png'), 'image/png')
     @group = Group.create(name: 'stationary', icon: @icon_file, user_id: @user.id)
-end
+  end
 
   before { subject.save }
 
