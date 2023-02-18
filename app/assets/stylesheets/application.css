@@ -111,6 +111,9 @@ input::placeholder {
   text-align: center;
   font-style: italic;
   padding: 2rem 0;
+}
+
+.links a {
   color: var(--blue);
 }
 

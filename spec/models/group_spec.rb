@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe Group, type: :model do
   subject do
     @user = User.create!(name: 'someone', email: 'user@user.com', password: 'password', id: 1)
-    @group = Group.create(name: 'stationary', icon: 'image.png', user: @user, user_id: 1, id: 1)
-  end
+    @icon_file = fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'test.png'), 'image/png')
+    @group = Group.create(name: 'stationary', icon: @icon_file, user_id: @user.id)
+end
 
   before { subject.save }
 
@@ -39,20 +40,6 @@ RSpec.describe Group, type: :model do
 
   it 'name should have valid value' do
     expect(subject.name).to eql 'stationary'
-  end
-
-  it 'icon should be present' do
-    subject.icon = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'icon should be a string' do
-    expect(subject.icon).to be_an(String)
-  end
-
-  it 'should have the correct format' do
-    subject.icon = 'image.svg'
-    expect(subject).to_not be_valid
   end
 
   it 'user should be present' do
