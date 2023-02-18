@@ -375,6 +375,10 @@ input::placeholder {
   box-shadow: 1px 1px 2px var(--grey3), -1px 0 3px var(--grey3);
 }
 
+.edit_add_page .list_btn {
+  padding: 0.5rem 0.9rem;
+}
+
 form input[type="file"] {
   width: 100%;
   border: none;

@@ -8,7 +8,7 @@
     <%= f.number_field :amount, placeholder: "Expense amount"  %>
     <%= f.file_field :icon %>
     <div class="form_btn">
-      <%= f.submit "Create Expense", class: 'list_btn' %>
+      <%= f.submit "Save", class: 'list_btn' %>
       <button class="list_btn"><%= link_to "Back", group_expenses_path(group_id: @group.id) %></button>
     </div>
   <% end %>

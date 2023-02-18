@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user = @user
     if @group.save
-      redirect_to group_path(id: @group.id), notice: 'Group created successfully'
+      redirect_to groups_path, notice: 'Group created successfully'
     else
       flash.now[:alert] = @group.errors.full_messages.first if @group.errors.any?
       render :new, status: 400

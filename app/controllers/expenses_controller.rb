@@ -76,7 +76,7 @@ class ExpensesController < ApplicationController
   end
 
   def find_group_expenses
-    @group_expenses = GroupExpense.where({group_id: params[:group_id]})
+    @group_expenses = GroupExpense.where({group_id: params[:group_id]}).order(created_at: :desc)
   end
  
   def find_expense
