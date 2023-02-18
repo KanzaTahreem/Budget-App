@@ -18,7 +18,7 @@
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
-  - [� Acknowledgments ](#-acknowledgments-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
@@ -171,7 +171,6 @@ If you like this project and want to support me make cooler projects Give this p
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
 
 Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
 
