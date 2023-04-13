@@ -129,7 +129,7 @@ You can deploy this project using:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
-- ## 👥 Author <a name="authors"></a>
+## 👥 Author <a name="authors"></a>
  
 👤 **Kanza Tahreem**
 - GitHub: [@KanzaTahreem](https://github.com/KanzaTahreem)
@@ -163,7 +163,7 @@ Feel free to check the [issues page](https://github.com/KanzaTahreem/Budget-App/
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project and want to support me make cooler projects Give this project a Star.
+If you like this project, please give it a star ✨
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
